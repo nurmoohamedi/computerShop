@@ -1,0 +1,47 @@
+.footer_top{
+    padding: 50px 0;
+}
+
+.footer_logo img{
+    height: 60px;
+}
+.footer_text{
+    padding: 20px 150px 20px 0;
+    font-size: 12px;
+}
+.footer_media svg{
+    color: #cb11ab;
+    transition: 0.3s;
+}
+.footer_media a{
+    margin-right: 15px;
+}
+.footer_media svg:hover{
+    color: #ededed;
+}
+
+.footer_header{
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.footer_links{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_links a{
+    margin-bottom: 7px;
+    color: #b7b7b7;
+    font-size: 14px;
+}
+
+.developer{
+    font-weight: 800;
+
+    background: linear-gradient(45deg, #cb11ab, #61dafb) no-repeat;
+    background-size: 100%;
+    background-clip: text;
+    color: transparent;
+}
