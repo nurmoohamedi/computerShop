@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import {Grid} from "@mui/material";
@@ -47,19 +46,19 @@ const Footer = () => {
                         </Box>
                         <Box className={styles.footer_media}>
                             <a href="https://facebook.com">
-                                <Facebook />
+                                <Facebook/>
                             </a>
                             <a href="https://twitter.com">
-                                <Twitter />
+                                <Twitter/>
                             </a>
                             <a href="https://telegram.com">
-                                <Telegram />
+                                <Telegram/>
                             </a>
                             <a href="https://instagram.com">
-                                <Instagram />
+                                <Instagram/>
                             </a>
                             <a href="https://youtube.com">
-                                <YouTube />
+                                <YouTube/>
                             </a>
                         </Box>
                     </Grid>
@@ -68,10 +67,10 @@ const Footer = () => {
                         <Box
                             className={styles.footer_links}
                         >
-                            <a href="">Monitors</a>
-                            <a href="">Keyboards</a>
-                            <a href="">Mouse</a>
-                            <a href="">Block</a>
+                            <a href="store/monitor">Monitors</a>
+                            <a href="store">Keyboards</a>
+                            <a href="store">Mouse</a>
+                            <a href="store">Block</a>
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={9} md={3}>
@@ -79,11 +78,11 @@ const Footer = () => {
                         <Box
                             className={styles.footer_links}
                         >
-                            <a href="">Store</a>
-                            <a href="">About Us</a>
-                            <a href="">Contact</a>
-                            <a href="">Basket</a>
-                            <a href="">My Cabinet</a>
+                            <a href="store">Store</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Contact</a>
+                            <a href="#">Basket</a>
+                            <a href="#">My Cabinet</a>
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={9} md={1}>
@@ -97,8 +96,14 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
-                <Box sx={{padding:'27px 0 10px 0',display:'flex', justifyContent:'space-between', borderTop:'1px solid #aaa', fontSize:'14px'}}>
-                    <p >
+                <Box sx={{
+                    padding: '27px 0 10px 0',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    borderTop: '1px solid #aaa',
+                    fontSize: '14px'
+                }}>
+                    <p>
                         {'Copyright © '}
                         {new Date().getFullYear()}
                         {' '}

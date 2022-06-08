@@ -58,7 +58,7 @@ const keyboardReducers = (state = initialState, action) => {
         case DELETE_KEYBOARD:
             return {
                 ...state,
-                keyboards: state.keyboards.filter(item => item.id != action.itemId)
+                keyboards: state.keyboards.filter(item => item.id !== action.itemId)
             }
         case GET_KEYBOARDS:
             return {

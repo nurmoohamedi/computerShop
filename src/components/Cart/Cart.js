@@ -42,7 +42,7 @@ const Item = ({item, deleteItem, addToItemsSum, addToItemsCount, fillBasketTotal
     return (
         <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} sx={{p: "32px 0"}}>
             <Box className={"item_img"} display={"flex"} flexDirection={"column"}>
-                <img src={item.img.small} style={{"maxWidth": "80px", "borderRadius": "20px"}}/>
+                <img alt="item" src={item.img.small} style={{"maxWidth": "80px", "borderRadius": "20px"}}/>
                 <Button variant={"text"} sx={{p: "10px 0 0 0", fontSize: "12px", color: "#c1c1c1"}}
                         onClick={deleteItem__}>Delete</Button>
             </Box>

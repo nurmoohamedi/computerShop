@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import {Button, Divider, Grid, List, ListItem, ListItemText, Typography} from "@mui/material";
-import {clearBasket} from "../../../../redux/basket-reducer";
 
 
 const products = [
@@ -85,7 +84,8 @@ const Review = ({basketData, shippingData, paymentData, totalPrice, stepNext, st
             </Grid>
             <div style={{paddingTop: '25px', display: 'flex', justifyContent: 'space-between'}}>
                 <Button variant={"outlined"} onClick={stepBack}>Back</Button>
-                <Button variant={"contained"} onClick={stepConfirm}>Pay   {totalPrice.toLocaleString("ru")} &#8376;</Button>
+                <Button variant={"contained"}
+                        onClick={stepConfirm}>Pay {totalPrice.toLocaleString("ru")} &#8376;</Button>
             </div>
         </div>
     );

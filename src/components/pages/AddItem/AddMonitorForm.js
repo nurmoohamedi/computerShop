@@ -1,9 +1,9 @@
 import {shopAPI} from "../../../service/service";
 
-import {Box, Button, CircularProgress, Grid, TextField, Typography} from "@mui/material";
+import {Box, Button, CircularProgress, Grid, Typography} from "@mui/material";
 import {Add} from "@mui/icons-material";
 
-import {useForm, FormProvider} from "react-hook-form";
+import {FormProvider, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
@@ -60,7 +60,8 @@ const AddMonitorForm = ({}) => {
                 <FormProvider {...methods} >
                     <form onSubmit={methods.handleSubmit(addItem)}>
                         <Grid container spacing={1}>
-                            <InputForm {...methods.register} label={"Model"} name={"model"} required fullwidth error={errors.model?.message} />
+                            <InputForm {...methods.register} label={"Model"} name={"model"} required fullwidth
+                                       error={errors.model?.message}/>
                             <InputForm label={"Size"} name={"size"} required fullwidth/>
                             <InputForm label={"Resolution"} name={"resolution"}/>
                             <InputForm label={"Refresh Rate"} required name={"refreshRate"}/>

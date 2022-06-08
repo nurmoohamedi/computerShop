@@ -1,9 +1,9 @@
 import {shopAPI} from "../../../service/service";
 
-import {Box, Button, CircularProgress, Grid, TextField} from "@mui/material";
+import {Box, Button, CircularProgress, Grid} from "@mui/material";
 import {Add} from "@mui/icons-material";
 
-import {useForm, FormProvider} from "react-hook-form";
+import {FormProvider, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
@@ -59,7 +59,7 @@ const AddKeyboardForm = ({showSnack}) => {
                 <FormProvider {...methods} >
                     <form onSubmit={methods.handleSubmit(addItem)}>
                         <Grid container spacing={1}>
-                            <InputForm label={"Model"} name={"model"} required fullwidth error={errors.model?.message} />
+                            <InputForm label={"Model"} name={"model"} required fullwidth error={errors.model?.message}/>
                             <InputForm label={"Description"} name={"description"} required fullwidth/>
                             <InputForm label={"Country"} name={"country"}/>
                             <InputForm label={"Price"} required name={"price"}/>

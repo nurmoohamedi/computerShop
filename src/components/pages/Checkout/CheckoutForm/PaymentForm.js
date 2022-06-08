@@ -1,7 +1,6 @@
-import {Button, FormGroup, Grid, TextField, Typography} from "@mui/material";
+import {Button, Grid, Typography} from "@mui/material";
 import InputForm from "../InputForm";
-import {useForm, FormProvider} from "react-hook-form";
-import {NavLink} from "react-router-dom";
+import {FormProvider, useForm} from "react-hook-form";
 
 const PaymentForm = ({paymentNext, stepBack}) => {
 
@@ -13,9 +12,9 @@ const PaymentForm = ({paymentNext, stepBack}) => {
 
     return (
         <div style={{
-            backgroundColor:"#fff",
-            borderRadius:"10px",
-            padding:"25px"
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            padding: "25px"
         }}>
 
             <FormProvider {...methods}>
@@ -30,8 +29,8 @@ const PaymentForm = ({paymentNext, stepBack}) => {
                         <InputForm name="cardCvc" label={"CVC"} required={true}
                                    helptext={"Last three digits on signature strip"}/>
                     </Grid>
-                    <div style={{paddingTop:'25px',display:'flex',justifyContent:'space-between'}}>
-                        <Button variant={"outlined"} onClick={stepBack} >Back</Button>
+                    <div style={{paddingTop: '25px', display: 'flex', justifyContent: 'space-between'}}>
+                        <Button variant={"outlined"} onClick={stepBack}>Back</Button>
                         <Button type="submit" variant={"contained"}>Next</Button>
                     </div>
                 </form>
