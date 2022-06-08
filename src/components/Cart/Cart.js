@@ -2,7 +2,6 @@ import {Box, Button, Container, Divider, Grid, Typography} from "@mui/material";
 import {connect} from "react-redux";
 import {clearBasket, computeBasketCost, deleteItemFromBasket} from "../../redux/basket-reducer";
 
-import soska_copy from "./../../assets/img/soska_copy.jpg"
 import increment from "./../../assets/icons/increment.svg"
 import decrement from "./../../assets/icons/decrement.svg"
 import emptyBasket from "./../../assets/icons/emptyBasket.svg"
@@ -37,7 +36,7 @@ const Item = ({item, deleteItem, addToItemsSum, addToItemsCount, fillBasketTotal
     function deleteItem__() {
         deleteItem(item.id);
         fillBasketTotal(item.id, 0, 0)
-        showSnack("info", "Item with ID - " + item.id + " - deleted!");
+        showSnack("warning", "Item with ID - " + item.id + " - deleted!");
     }
 
     return (
@@ -119,7 +118,7 @@ const Cart = (props) => {
                                 {items}
                                 <Box textAlign={"center"}>
                                     <Button onClick={resetBasket} variant={"text"}
-                                            sx={{m: "24px 0", color: "#c1c1c1", textTransform: "CamelCase"}}>
+                                            sx={{m: "24px 0", color: "#c1c1c1", textTransform: "uppercase"}}>
                                         Clear the basket
                                     </Button>
                                 </Box>

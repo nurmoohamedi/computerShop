@@ -1,22 +1,20 @@
-import {Box, Container} from "@mui/material";
-import Search from "../../common/Search";
 import * as React from "react";
+import {connect} from "react-redux";
+import {addItemToBasket} from "../../../redux/basket-reducer";
+import MonitorList from "./Monitor";
 
-const Monitor = () => {
+const MonitorContainer = ({ addItemToBasket, monitors, showSnack }) => {
   return (
-      <Container>
-          <Box
-              sx={{
-                  padding:'20px 20px',
-                  backgroundColor:'#fff',
-                  borderRadius: '6px'
-              }}
-          >
-              <Search/>
-              <div>Monitor</div>
-          </Box>
-      </Container>
+      <MonitorList
+        addToBasket={addItemToBasket}
+        monitors={monitors}
+        showSnack={showSnack}
+      />
   )
 };
 
-export default Monitor;
+const mapStateToProps = (state) => ({
+    monitors: state.monitor.monitors
+})
+
+export default connect(mapStateToProps, {addItemToBasket} )(MonitorContainer);

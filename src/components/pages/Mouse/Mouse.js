@@ -1,14 +1,14 @@
 import {Grid, Typography} from "@mui/material";
-import styles from "./Keyboard.module.css"
+import * as React from "react";
 import {useState} from "react";
+import styles from "../Keyboard/Keyboard.module.css";
 
-function KeyboardItem({keyboard, addToBasket, deleteItem, showSnack}) {
+const Mouse = ({mouse, addToBasket, showSnack}) => {
 
     const [isHover, setIsHover] = useState(false);
-
     const onCLick = () => {
-        addToBasket(keyboard);
-        showSnack("success", `Keyboard with id - ${keyboard.id} added to Cart successfully!`)
+        addToBasket(mouse);
+        showSnack("success", `Keyboard with id - ${mouse.id} added to Cart successfully!`)
     }
 
     return (
@@ -18,13 +18,13 @@ function KeyboardItem({keyboard, addToBasket, deleteItem, showSnack}) {
                  onMouseLeave={() => setIsHover(false)}
             >
                 <div className={styles.item_img}>
-                    <img src={keyboard.img.small} alt="Small IMG"/>
+                    <img src={mouse.img.small} alt="Small IMG"/>
                 </div>
-                <div className={styles.item_name}>
-                    {keyboard.description}
-                </div>
+                <p className={styles.item_name}>
+                    {mouse.description}
+                </p>
                 <div className={styles.item_price}>
-                    {keyboard.price.toLocaleString('ru')}<span> ₸</span>
+                    {mouse.price.toLocaleString('ru')}<span> ₸</span>
                 </div>
 
                 {
@@ -42,20 +42,20 @@ function KeyboardItem({keyboard, addToBasket, deleteItem, showSnack}) {
             </div>
         </Grid>
     );
-}
+};
 
+const MouseList = ({mouses, addToBasket, showSnack}) => {
 
-const KeyboardList = ({keyboards, addToBasket, deleteItem, showSnack}) => {
-
-    console.log(keyboards)
-    const keyboardsList = keyboards.map(k => {
-        return <KeyboardItem
-            key={k.id}
-            keyboard={k}
-            addToBasket={addToBasket}
-            deleteItem={deleteItem}
-            showSnack={showSnack}
-        />
+    console.log(mouses)
+    const monitorsList = mouses.map(m => {
+        return (
+            <Mouse
+                key={m.id}
+                mouse={m}
+                addToBasket={addToBasket}
+                showSnack={showSnack}
+            />
+        )
     })
 
 
@@ -63,15 +63,16 @@ const KeyboardList = ({keyboards, addToBasket, deleteItem, showSnack}) => {
         <>
             {/*<Typography variant={"h4"}>Keyboards</Typography>*/}
             {
-                !keyboards.length && <Typography variant={"h5"}>No Data!</Typography>
+                !mouses.length && <Typography variant={"h5"}>No Data!</Typography>
             }
             <Grid container spacing={1}>
                 {
-                    keyboardsList
+                    monitorsList
                 }
             </Grid>
         </>
     )
 }
 
-export default KeyboardList;
+export default MouseList;
+

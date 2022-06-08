@@ -1,10 +1,10 @@
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import * as React from "react";
-import {useState} from "react";
-import {Box} from "@mui/material";
+import {useEffect, useState} from "react";
+import {Badge, Box} from "@mui/material";
 import {Person, Search, ShoppingBasket} from "@mui/icons-material";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {connect} from "react-redux";
 import styles from "./Header.module.css"
 import logo from "../../../assets/img/computech3_new.png"
@@ -16,9 +16,28 @@ const navs = [
     {id: 4, name: "Contact", to: "/contact"},
 ]
 
-const Header = (props) => {
+const Header = ({basketSize}) => {
 
-    const [activeNav, setActiveNav] = useState(1);
+    const [activeNav, setActiveNav] = useState(0);
+
+    const location = useLocation();
+    console.log(location)
+
+    useEffect(()=>{
+        navs.forEach(nav => {
+            if (location.pathname === "/")
+                setActiveNav(1);
+            else if (location.pathname.includes("store"))
+                setActiveNav(2);
+            else if(location.pathname.includes("about"))
+                setActiveNav(3);
+            else if(location.pathname.includes("contact"))
+                setActiveNav(4);
+            else
+                setActiveNav(0);
+        })
+    }, [location]);
+
 
     return (
         <>
@@ -49,7 +68,7 @@ const Header = (props) => {
                     <Box sx={{flexGrow: 1}}>
                         <div className={styles.search_box}>
                             <input type="text" placeholder={"search...."}/>
-                            <a href="##">
+                            <a href="#">
                                 <Search/>
                             </a>
                         </div>
@@ -71,7 +90,9 @@ const Header = (props) => {
                         sx={{fontWeight: '800', color: '#61ddfb'}}
                         className={styles.nav_link}
                     >
-                        <span className={styles.nav_link__span}><Person sx={{width: '30px', height: '30px', color: '#61ddfb'}}/></span>
+                        <span className={styles.nav_link__span}>
+                            <Person sx={{width: '30px', height: '30px', color: '#61ddfb'}}/>
+                        </span>
                         Login
                     </Box>
 
@@ -79,15 +100,18 @@ const Header = (props) => {
                         component={NavLink}
                         to={"/cart"}
                         sx={{fontWeight: '800', color: '#61ddfb'}}
+                        className={styles.nav_link}
                     >
-                        {/*<Badge*/}
-                        {/*    color={"secondary"}*/}
-                        {/*    badgeContent={props.basketSize}*/}
-                        {/*    className={styles.nav_link__span}*/}
-                        {/*>*/}
-                            <span className={styles.nav_link__span}><ShoppingBasket sx={{width: '30px', height: '30px', color: '#61ddfb'}}/></span>
-                            Basket
-                        {/*</Badge>*/}
+                        <Badge
+                            color={"secondary"}
+                            badgeContent={basketSize}
+                            className={styles.nav_link__span}
+                        >
+                            {/*<span >*/}
+                                <ShoppingBasket sx={{width: '30px', height: '30px', color: '#61ddfb'}}/>
+                            {/*</span>*/}
+                            Cart
+                        </Badge>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -96,7 +120,7 @@ const Header = (props) => {
                     {
                         navs.map(nav =>
                             <NavLink
-                                onClick={() => setActiveNav(nav.id)}
+                                // onClick={() => setActiveNav(nav.id)}
                                 key={nav.id}
                                 to={nav.to}
                                 className={nav.id === activeNav && styles.active}>

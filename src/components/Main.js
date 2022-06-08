@@ -5,9 +5,9 @@ import {Route, Routes} from "react-router-dom";
 import AddItem from "./pages/AddItem/AddItem";
 import Sidebar from "./../components/pages/Sidebar/Sidebar";
 
-import Monitor from "./../components/pages/Monitor/Monitor";
-import Mouse from "./../components/pages/Mouse/Mouse";
 import KeyboardContainer from "./../components/pages/Keyboard/KeyboardContainer";
+import MonitorContainer from "./pages/Monitor/MonitorContainer";
+import MouseContainer from "./pages/Mouse/MouseContainer";
 
 function Main({showSnack}) {
 
@@ -48,8 +48,8 @@ function Main({showSnack}) {
                             <Routes>
                                 {/*<Route path={"/"} element={<HomePage/>}/>*/}
                                 <Route path={"keyboard"} element={<KeyboardContainer showSnack={showSnack}/>}/>
-                                <Route path={"monitor"} element={<Monitor/>}/>
-                                <Route path={"mouse"} element={<Mouse/>}/>
+                                <Route path={"monitor"} element={<MonitorContainer showSnack={showSnack}/>}/>
+                                <Route path={"mouse"} element={<MouseContainer showSnack={showSnack}/>}/>
                                 <Route path={"addItem"} element={<AddItem showSnack={showSnack}/>}/>
                             </Routes>
                         </Box>

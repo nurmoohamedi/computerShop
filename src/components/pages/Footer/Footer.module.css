@@ -12,7 +12,28 @@
 .footer_media svg{
     color: #cb11ab;
     transition: 0.3s;
+    /*font-size: 36px;*/
+    /*text-shadow: 0 0 15px;*/
 }
+.footer_media svg:hover{
+    animation: animate 1s infinite linear;
+}
+@keyframes animate {
+    0%,
+    100% {
+        color: deeppink;
+    }
+    25% {
+        color: deepskyblue;
+    }
+    50% {
+        color: lawngreen;
+    }
+    75% {
+        color: yellow;
+    }
+}
+
 .footer_media a{
     margin-right: 15px;
 }
