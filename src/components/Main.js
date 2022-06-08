@@ -29,7 +29,7 @@ function Main({showSnack}) {
                           xs={12} sm={4} md={3}
                         // mt={3}
                         // sx={{maxWidth:'00px'}}
-                        mb={2}
+                          mb={2}
                     >
                         <Sidebar/>
                     </Grid>

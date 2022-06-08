@@ -1,7 +1,6 @@
 import {Box, Container, Grid, Typography} from "@mui/material";
 import * as React from "react";
-import {Swiper} from "swiper/react";
-import {SwiperSlide} from "swiper/react";
+import {Swiper, SwiperSlide} from "swiper/react";
 
 import styles from "./HomePage.module.css"
 
@@ -10,14 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import {Autoplay, Pagination, Navigation} from "swiper";
-
-
-import soska from '../../../assets/img/soska_copy.jpg'
-import wall from '../../../assets/img/wall.png'
-import wall2 from '../../../assets/img/wall2.jpg'
-
-import {NavLink} from "react-router-dom";
+import {Autoplay, Navigation, Pagination} from "swiper";
 
 const HomePage = () => {
     return (
