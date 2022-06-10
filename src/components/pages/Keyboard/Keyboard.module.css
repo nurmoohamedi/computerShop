@@ -75,3 +75,12 @@
 .item_buttons button:hover{
     background: #161616;
 }
+
+@media (max-width:811px) {
+    .item{
+        margin-bottom: 50px;
+    }
+    .item_buttons{
+        box-shadow: none;
+    }
+}

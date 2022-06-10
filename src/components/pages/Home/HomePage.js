@@ -117,9 +117,7 @@ const HomePage = () => {
             </section>
 
             <Container sx={{p: '15px'}} className={styles.why_block}>
-
                 <h1>Почему мы?</h1>
-
                 <Box
                     sx={{
                         height: '400px',
@@ -132,14 +130,14 @@ const HomePage = () => {
                     className={styles.anim_block}
                 >
                     <Box
+                        padding="0 20px"
                         sx={{maxWidth: '600px', textAlign: 'left', color: '#fff'}}
                     >
-                        <Typography variant={'h3'} sx={{fontWeight: '800'}}>
-                            <span>01</span>
-                            <br/>
+                        <p className={styles.anim_block__num}>01</p>
+                        <p className={styles.anim_block__title}>
                             Комплектующие
-                        </Typography>
-                        <Box sx={{mt: '25px'}}>
+                        </p>
+                        <Box className={styles.anim_block__body} sx={{mt: '25px'}}>
                             Мы являемся официальными партнерами таких компаний как Intel, Nvidia, Asus, Gigabyte, AMD,
                             Transcend, MSI, Palit, Kingston, TeamGroup, NZXT, beQuiet, Asrock и другие. Использование
                             только
@@ -148,7 +146,6 @@ const HomePage = () => {
                         </Box>
                     </Box>
                 </Box>
-
                 <Grid container mt={0} spacing={1}>
                     <Grid item md={6} xs={12}>
                         <Box
@@ -166,13 +163,11 @@ const HomePage = () => {
                                     color: '#fff', textAlign: 'left', maxWidth: '400px'
                                 }}
                             >
-                                <Typography variant={'h3'} fontWeight={800}>02</Typography>
-                                <Typography variant={'h4'} sx={{fontWeight: '800'}}>
-                                    Гарантия
-                                </Typography>
-                                <Typography sx={{fontWeight: '500', fontSize: '14px', mt: '20px'}}>
+                                <p className={styles.anim_block__num}>02</p>
+                                <p className={styles.anim_block__title}>Гарантия</p>
+                                <p className={styles.anim_block__body}>
                                     Гарантия до 3х лет на комплектующие.
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>
@@ -192,14 +187,12 @@ const HomePage = () => {
                                     color: '#fff', textAlign: 'right', maxWidth: '400px'
                                 }}
                             >
-                                <Typography variant={'h3'} fontWeight={800}>03</Typography>
-                                <Typography variant={'h4'} sx={{fontWeight: '800'}}>
-                                    Тестирование <br/> и поддержка
-                                </Typography>
-                                <Typography sx={{fontWeight: '500', fontSize: '14px', mt: '20px'}}>
+                                <p className={styles.anim_block__num}>03</p>
+                                <p className={styles.anim_block__title}>Тестирование <br/> и поддержка</p>
+                                <p className={styles.anim_block__body}>
                                     Тщательная проверка комплектующих на всех этапах работы. Все компьютеры проходят
                                     комплексное стресс-тестирование. Сервисное обслуживание аппаратной части.
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>
@@ -221,15 +214,13 @@ const HomePage = () => {
                                     color: '#fff', textAlign: 'left', maxWidth: '400px'
                                 }}
                             >
-                                <Typography variant={'h3'} fontWeight={800}>04</Typography>
-                                <Typography variant={'h4'} sx={{fontWeight: '800'}}>
-                                    Лояльность
-                                </Typography>
-                                <Typography sx={{fontWeight: '500', fontSize: '14px', mt: '20px'}}>
+                                <p className={styles.anim_block__num}>04</p>
+                                <p className={styles.anim_block__title}>Лояльность</p>
+                                <p className={styles.anim_block__body}>
                                     Индивидуальный подход к каждому клиенту. Мы создаем системы с учетом высоких
                                     требований геймеров и энтузиастов, стараемся делать качественные вещи, которые
                                     позволяют покупателю наслаждаться игровым процессом в полном объеме.
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>
@@ -252,14 +243,12 @@ const HomePage = () => {
                                     color: '#fff', textAlign: 'right', maxWidth: '400px'
                                 }}
                             >
-                                <Typography variant={'h3'} fontWeight={800}>05</Typography>
-                                <Typography variant={'h4'} sx={{fontWeight: '800'}}>
-                                    Преимущества
-                                </Typography>
-                                <Typography sx={{fontWeight: '500', fontSize: '16px', mt: '20px'}}>
+                                <p className={styles.anim_block__num}>05</p>
+                                <p className={styles.anim_block__title}>Преимущества</p>
+                                <p className={styles.anim_block__body}>
                                     Выбирая нас вы всегда можете рассчитывать на гибкую систему скидок, выгодные
                                     предложения и лояльный подход
-                                </Typography>
+                                </p>
                             </Box>
                         </Box>
                     </Grid>

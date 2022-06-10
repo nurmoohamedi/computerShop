@@ -69,10 +69,11 @@
 
 .developer {
     font-weight: 800;
-
     background: linear-gradient(45deg, #cb11ab, #61dafb) no-repeat;
     background-size: 100%;
-    /*background-clip: text;*/
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -88,9 +89,6 @@
     .footer_text {
         padding-right: 0;
     }
-    /*.footer_logo{*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
     .footer_header{
         margin-top: 40px;
     }

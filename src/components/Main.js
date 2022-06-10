@@ -24,17 +24,15 @@ function Main({showSnack}) {
             {/*>*/}
             {/*<Header orderCount={order.length}/>*/}
             <Container sx={{p: '25px 10px'}}>
-                <Grid container component={"main"}>
+                <Grid container spacing={1}>
                     <Grid item
                           xs={12} sm={4} md={3}
-                        // mt={3}
                         // sx={{maxWidth:'00px'}}
                           mb={2}
                     >
                         <Sidebar/>
                     </Grid>
-                    <Grid
-                        item
+                    <Grid item
                         xs={12} sm={8} md={9}
                         // mt={3}
                         // minHeight={'200px'}

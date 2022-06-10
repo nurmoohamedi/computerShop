@@ -37,7 +37,7 @@ const Sidebar = () => {
     return (
         <Box
             sx={{
-                width: '100%', maxWidth: 250,
+                width: '100%',
                 bgcolor: 'background.paper',
                 // padding:'6px',
                 // backgroundColor:'#fff',

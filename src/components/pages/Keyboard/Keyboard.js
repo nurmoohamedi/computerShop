@@ -1,6 +1,7 @@
 import {Grid, Typography} from "@mui/material";
 import styles from "./Keyboard.module.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useMediaQuery} from "../../common/useMediaQuery";
 
 function KeyboardItem({keyboard, addToBasket, deleteItem, showSnack}) {
 
@@ -10,6 +11,13 @@ function KeyboardItem({keyboard, addToBasket, deleteItem, showSnack}) {
         addToBasket(keyboard);
         showSnack("success", `Keyboard with id - ${keyboard.id} added to Cart successfully!`)
     }
+
+    let isSmallSize = useMediaQuery('(max-width:811px)')
+
+    useEffect(() => {
+        if (isSmallSize)
+            setIsHover(true);
+    }, [isSmallSize])
 
     return (
         <Grid item xs={12} sm={6} md={4}>

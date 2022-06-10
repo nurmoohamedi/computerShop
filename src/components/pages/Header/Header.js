@@ -47,8 +47,9 @@ const Header = ({basketSize}) => {
                 <div className={styles.wrapper + " " + styles.container}>
 
                     <input type="checkbox"
-                           defaultChecked={checked}
-                           onChange={() => setChecked(prevState => setChecked(!prevState))}
+                           checked={checked}
+                           // defaultChecked={checked}
+                           onChange={() => setChecked(prevState => !prevState)}
                     />
                     <span className={styles.hamburger}> </span>
 
@@ -126,7 +127,7 @@ const Header = ({basketSize}) => {
                     {
                         navs.map(nav =>
                             <NavLink
-                                onClick={() => setChecked(prevState => !prevState)}
+                                onClick={() => setChecked(false)}
                                 key={nav.id}
                                 to={nav.to}
                                 className={nav.id === activeNav && styles.active}>

@@ -43,3 +43,19 @@ code {
 .slider-wrapper .swiper-button-next,.slider-wrapper .swiper-button-prev{
     color: #fff;
 }
+@media only screen and (max-width: 768px) {
+    .slider-wrapper .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 0px;
+    }
+}
+@media (max-width: 530px){
+    .slider-wrapper .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction{
+        bottom: 0px;
+    }
+}

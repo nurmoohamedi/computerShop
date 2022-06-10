@@ -1,8 +1,8 @@
 .error{
     /*border: 2px solid red;*/
-    width: 700px;
+    max-width: 700px;
     margin: auto;
-    padding: 50px;
+    padding: 30px;
 
     display: flex;
     flex-direction: column;
@@ -10,7 +10,13 @@
     justify-content: center;
 
 }
-
+.error img{
+    width: 100%;
+    height: auto;
+}
+.error h3{
+    margin: 20px 0;
+}
 .btn{
     text-decoration: none;
     margin-top: 15px;
@@ -74,5 +80,15 @@
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .error{
+        /*width: 300px;*/
+    }
+    .btn{
+        font-size: 12px;
     }
 }
