@@ -62,7 +62,7 @@ const Footer = () => {
                             </a>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={9} md={3}>
+                    <Grid item xs={6} sm={4} md={3}>
                         <p className={styles.footer_header}>Products</p>
                         <Box
                             className={styles.footer_links}
@@ -73,7 +73,7 @@ const Footer = () => {
                             <a href="store">Block</a>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={9} md={3}>
+                    <Grid item xs={6} sm={4} md={3}>
                         <p className={styles.footer_header}>Useful Links</p>
                         <Box
                             className={styles.footer_links}
@@ -85,7 +85,7 @@ const Footer = () => {
                             <a href="#">My Cabinet</a>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={9} md={1}>
+                    <Grid item xs={12} sm={4} md={1}>
                         <p className={styles.footer_header}>Address</p>
                         <Box
                             className={styles.footer_links}
@@ -96,13 +96,9 @@ const Footer = () => {
                     </Grid>
                 </Grid>
 
-                <Box sx={{
-                    padding: '27px 0 10px 0',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    borderTop: '1px solid #aaa',
-                    fontSize: '14px'
-                }}>
+                <Box
+                    className={styles.footer_bottom}
+                    >
                     <p>
                         {'Copyright © '}
                         {new Date().getFullYear()}
