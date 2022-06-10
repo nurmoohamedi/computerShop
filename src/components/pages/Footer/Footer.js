@@ -39,10 +39,9 @@ const Footer = () => {
                     <Grid item xs={12} sm={9} md={5} className={styles.footer_logo}>
                         <img src={logo} alt="Footer Logo"/>
                         <Box className={styles.footer_text}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam corporis cum
-                            distinctio dolore, illo impedit incidunt magni maxime molestias, neque nesciunt
-                            quibusdam reiciendis voluptates! Doloribus fuga id possimus praesentium
-                            ullam?
+                            Computech – it has never been easier to buy cheap computers, and ordering household
+                            appliances, electronics and telecommunications equipment has never been as convenient as in
+                            the "computech" online store.
                         </Box>
                         <Box className={styles.footer_media}>
                             <a href="https://facebook.com">
@@ -98,7 +97,7 @@ const Footer = () => {
 
                 <Box
                     className={styles.footer_bottom}
-                    >
+                >
                     <p>
                         {'Copyright © '}
                         {new Date().getFullYear()}

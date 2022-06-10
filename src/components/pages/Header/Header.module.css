@@ -262,7 +262,8 @@ input[type="checkbox"]:checked + .hamburger::before {
 
 @media (max-width: 860px) {
     .logo img {
-        /*width: 33px;*/
+        width: 44px;
+        height: 44px;
         padding: 0;
     }
 

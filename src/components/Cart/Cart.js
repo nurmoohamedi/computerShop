@@ -8,6 +8,7 @@ import emptyBasket from "./../../assets/icons/emptyBasket.svg"
 
 import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
+import {useMediaQuery} from "../common/useMediaQuery";
 
 const Item = ({item, deleteItem, addToItemsSum, addToItemsCount, fillBasketTotal, showSnack}) => {
 
@@ -39,22 +40,36 @@ const Item = ({item, deleteItem, addToItemsSum, addToItemsCount, fillBasketTotal
         showSnack("warning", "Item with ID - " + item.id + " - deleted!");
     }
 
+    let isSmall = useMediaQuery('(max-width:811px)');
+
     return (
-        <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} sx={{p: "32px 0"}}>
-            <Box className={"item_img"} display={"flex"} flexDirection={"column"}>
-                <img alt="item" src={item.img.small} style={{"maxWidth": "80px", "borderRadius": "20px"}}/>
-                <Button variant={"text"} sx={{p: "10px 0 0 0", fontSize: "12px", color: "#c1c1c1"}}
-                        onClick={deleteItem__}>Delete</Button>
+        <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} sx={{p: isSmall?"10px 0":"32px 0"}}>
+            <Box mr={1} className={"item_img"} display={"flex"} flexDirection={"column"}>
+                <img alt="item" src={item.img.small}
+                     style={{"maxWidth": isSmall ? '50px' : "80px", "borderRadius": "20px"}}/>
+                <button variant={"text"}
+                        style={{
+                            border: 'none',
+                            background: 'transparent',
+                            textTransform: 'uppercase',
+                            color: '#c1c1c1',
+                            p: "10px 0 0 0",
+                            fontSize: isSmall ? '8px' : "12px"
+                        }}
+                        onClick={deleteItem__}>Delete
+                </button>
             </Box>
-            <Box className={"item_info"} sx={{p: "0 20px", maxWidth: "500px"}}>
-                <Typography>{item.model}, {item.description}</Typography>
+            <Box className={"item_info"} sx={{p: isSmall ? '0' : "0 20px", maxWidth: "500px"}}>
+                <Typography
+                    fontSize={isSmall ? '10px' : '14px'}
+                >{item.model}, {item.description}</Typography>
                 {isCountMax &&
-                    <Typography color={"red"} fontSize={"14px"}>
+                    <Typography color={"red"} fontSize={isSmall ? '10px' : '14px'}>
                         You reached to its maximum count!
                     </Typography>}
             </Box>
             <Box className={"item_price"}
-                 minWidth={"90px"}><Typography>{currentPrice.toLocaleString('ru')} &#8376;</Typography></Box>
+                 minWidth={"80px"}><Typography>{currentPrice.toLocaleString('ru')} &#8376;</Typography></Box>
 
             <Box className={"item_count"} display={"flex"} flexDirection={"column"} justifyContent={"space-between"}
                  alignItems={"center"}>
@@ -78,36 +93,39 @@ const Cart = (props) => {
 
     const items = props.basketItems.map(item => {
             return (<div key={item.id}>
-                <Item item={item} deleteItem={props.deleteItemFromBasket} fillBasketTotal={props.computeBasketCost} showSnack={props.showSnack}/>
+                <Item item={item} deleteItem={props.deleteItemFromBasket} fillBasketTotal={props.computeBasketCost}
+                      showSnack={props.showSnack}/>
                 <Divider/>
             </div>)
         }
     )
 
+    let isSmall = useMediaQuery('(max-width:811px)');
+
     return (
-        //#edeef0
         <Container
             sx={{
-                // flex: "2"
                 marginBottom: "25px",
-                // border: "2px solid red"
             }}
         >
-            <Typography fontSize={28} fontWeight={600} m={2}>
+            <Typography fontSize={isSmall?18:28} fontWeight={600} m={2}>
                 Your Shopping Cart
             </Typography>
             <Grid container spacing={4}
-                // sx={{width:"1300px", margin:"0 auto"}}
             >
-                <Grid item sm={8}>
+                <Grid item xs={12} sm={8} md={8}>
                     <Container sx={{
-                        // padding: "24px",
                         backgroundColor: '#fff', borderRadius: '10px'
                     }}>
                         {items.length === 0
                             ?
                             <Box minHeight={'350px'}
-                                 display={"flex"} flexDirection={'column'} justifyContent={"center"} alignItems={"center"}>
+                                 display={"flex"}
+                                 flexDirection={'column'}
+                                 justifyContent={"center"}
+                                 alignItems={"center"}
+                                 textAlign={"center"}
+                            >
                                 <img width={'48px'} src={emptyBasket} alt="emptyBasket"/>
                                 <Typography color={"#000"} fontSize={16} fontWeight={"600"}>
                                     You have no items in your shopping cart!
@@ -126,12 +144,12 @@ const Cart = (props) => {
                         }
                     </Container>
                 </Grid>
-                <Grid item sm={4}>
+                <Grid item xs={12} sm={4} md={4}>
                     <Box p="25px" display={'flex'} flexDirection={'column'} justifyContent={'space-between'}
                          sx={{backgroundColor: '#fff', borderRadius: '10px'}}>
                         <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Typography fontSize={"16px"}>Сумма к оплате:</Typography>
-                            <Typography fontSize={"32px"}
+                            <Typography fontSize={isSmall ? '13px' : "16px"}>Сумма к оплате:</Typography>
+                            <Typography fontSize={isSmall ? '14px' : "32px"}
                                         fontWeight={'600'}>{(props.totalPrice).toLocaleString('ru')} &#8376;</Typography>
                         </Box>
                         <Divider sx={{m: '10px 0'}}/>
@@ -139,10 +157,14 @@ const Cart = (props) => {
                              fontSize={"1.1em"}
                              sx={{mb: '25px'}}>
                             <Typography>Количество товаров:</Typography>
-                            <Typography fontSize={'20px'}>{props.totalCount} шт.</Typography>
+                            <Typography fontSize={isSmall ? '14px' : '20px'}>{props.totalCount} шт.</Typography>
                         </Box>
                         <Box>
-                            <Button disabled={items.length === 0 && true} component={NavLink} to={"/checkout"} fullWidth variant={'contained'}>
+                            <Button disabled={items.length === 0 && true}
+                                    component={NavLink} to={"/checkout"}
+                                    fullWidth variant={'contained'}
+                                    sx={{fontSize: isSmall ? '12px' : '14px'}}
+                            >
                                 Оформить заказ
                             </Button>
                         </Box>
