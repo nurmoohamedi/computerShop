@@ -41,6 +41,16 @@ const Header = ({basketSize}) => {
 
     let isPageSmall = useMediaQuery('(max-width:860px)')
 
+    const showMenu = () => {
+        if (!checked) {
+            document.body.style.overflow = 'hidden';
+        }
+        else
+            document.body.style.overflow = 'initial';
+
+        setChecked(prevState => !prevState);
+    }
+
     return (
         <>
             <header>
@@ -49,7 +59,7 @@ const Header = ({basketSize}) => {
                     <input type="checkbox"
                            checked={checked}
                            // defaultChecked={checked}
-                           onChange={() => setChecked(prevState => !prevState)}
+                           onChange={() => showMenu()}
                     />
                     <span className={styles.hamburger}> </span>
 
