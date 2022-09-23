@@ -51,98 +51,100 @@ const Header = ({ basketSize }) => {
   return (
     <>
       <header>
-        <div className={styles.wrapper + " " + styles.container}>
-          <input
-            type="checkbox"
-            checked={checked}
-            // defaultChecked={checked}
-            onChange={() => showMenu()}
-          />
-          <span className={styles.hamburger}> </span>
+        <div className={styles.header_inner}>
+          <div className={styles.wrapper + " " + styles.container}>
+            <input
+              type="checkbox"
+              checked={checked}
+              // defaultChecked={checked}
+              onChange={() => showMenu()}
+            />
+            <span className={styles.hamburger}> </span>
 
-          <NavLink to={"/"} className={styles.logo}>
-            <img src={isPageSmall ? logo_small : logo} alt="Logo" />
-          </NavLink>
+            <NavLink to={"/"} className={styles.logo}>
+              <img src={isPageSmall ? logo_small : logo} alt="Logo" />
+            </NavLink>
 
-          <div className={styles.search_box}>
-            <input type="text" placeholder={"search...."} />
-            <a href="#">
-              <Search />
-            </a>
-          </div>
+            <div className={styles.search_box}>
+              <input type="text" placeholder={"search...."} />
+              <a href="#">
+                <Search />
+              </a>
+            </div>
 
-          <Box sx={{ display: "flex" }}>
-            {!isPageSmall && (
+            <Box sx={{ display: "flex" }}>
+              {!isPageSmall && (
+                <Box
+                  component={NavLink}
+                  to={"/login"}
+                  pr={4}
+                  sx={{
+                    fontWeight: "800",
+                    color: "#61ddfb",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                  }}
+                  className={styles.nav_link}
+                >
+                  <span className={styles.nav_link__span}>
+                    <Person
+                      sx={{
+                        width: isPageSmall ? "24px" : "30px",
+                        height: "30px",
+                        color: "#61ddfb",
+                      }}
+                    />
+                  </span>
+                  Login
+                </Box>
+              )}
+
               <Box
                 component={NavLink}
-                to={"/login"}
-                pr={4}
-                sx={{
-                  fontWeight: "800",
-                  color: "#61ddfb",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                }}
+                to={"/cart"}
+                sx={{ fontWeight: "800", color: "#61ddfb" }}
                 className={styles.nav_link}
               >
-                <span className={styles.nav_link__span}>
-                  <Person
+                <Badge
+                  color={"secondary"}
+                  badgeContent={basketSize}
+                  className={styles.nav_link__span}
+                  sx={{ textTransform: "uppercase" }}
+                >
+                  {/*<span >*/}
+                  <ShoppingBasket
                     sx={{
                       width: isPageSmall ? "24px" : "30px",
-                      height: "30px",
+                      height: isPageSmall ? "24px" : "30px",
                       color: "#61ddfb",
                     }}
                   />
-                </span>
-                Login
+                  {/*</span>*/}
+                  Cart
+                </Badge>
               </Box>
-            )}
-
-            <Box
-              component={NavLink}
-              to={"/cart"}
-              sx={{ fontWeight: "800", color: "#61ddfb" }}
-              className={styles.nav_link}
-            >
-              <Badge
-                color={"secondary"}
-                badgeContent={basketSize}
-                className={styles.nav_link__span}
-                sx={{ textTransform: "uppercase" }}
-              >
-                {/*<span >*/}
-                <ShoppingBasket
-                  sx={{
-                    width: isPageSmall ? "24px" : "30px",
-                    height: "30px",
-                    color: "#61ddfb",
-                  }}
-                />
-                {/*</span>*/}
-                Cart
-              </Badge>
             </Box>
-          </Box>
-        </div>
+          </div>
 
-        <nav
-          className={
-            isPageSmall
-              ? styles.menu_items + " " + (checked && styles.active)
-              : styles.nav
-          }
-        >
-          {navs.map((nav) => (
-            <NavLink
-              onClick={() => onNavClicked()}
-              key={nav.id}
-              to={nav.to}
-              className={nav.id === activeNav && styles.active}
-            >
-              {nav.name}
-            </NavLink>
-          ))}
-        </nav>
+          <nav
+            className={
+              isPageSmall
+                ? styles.menu_items + " " + (checked && styles.active)
+                : styles.nav
+            }
+          >
+            {navs.map((nav) => (
+              <NavLink
+                onClick={() => onNavClicked()}
+                key={nav.id}
+                to={nav.to}
+                className={nav.id === activeNav && styles.active}
+              >
+                {nav.name}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
       </header>
 
       {/*<AppBar*/}
