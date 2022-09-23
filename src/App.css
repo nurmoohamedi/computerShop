@@ -1,33 +1,30 @@
-
 /*
 HTML - CODES
 
 tenge - &#8376;
 */
 
-
-a{text-decoration: none}
-a:hover{text-decoration: underline}
-*{
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+* {
   box-sizing: border-box;
 }
-body{
+body {
   background-color: #edeef0;
 }
 
-
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
-.App {
-  /*text-align: center;*/
-
-  /*padding-bottom: 50px;*/
-
+.app_wrapper {
+  margin-top: 132px;
 }
 
 .App-logo {
@@ -65,7 +62,13 @@ body{
   }
 }
 
-.tenge:after{
+.tenge:after {
   /*content: ' \E913';*/
-  content: ' \20B8';
+  content: " \20B8";
+}
+
+@media screen and (max-width: 860px) {
+  .app_wrapper {
+    margin-top: 64px;
+  }
 }
